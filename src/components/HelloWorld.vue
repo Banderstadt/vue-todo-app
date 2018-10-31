@@ -1,14 +1,15 @@
 <template>
   <v-container>
-{{msg}}
+{{todo}}
   </v-container>
 </template>
 
 <script>
 export default {
+  props: ['todo'],
   name: 'HelloWorld',
   data: () => ({
-    msg: 'Hello world!'
+    msg: 'Note1'
   })
 }
 </script>
