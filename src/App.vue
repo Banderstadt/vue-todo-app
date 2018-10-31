@@ -4,16 +4,20 @@
       <v-card>
         <v-card-title primary-title>
           <div>
-            <h3 class="headline mb-0">To do</h3>
+            <h3 class="headline mb-0">To do:</h3>
           </div>
         </v-card-title>
 
           <HelloWorld></HelloWorld>
           <HelloWorld></HelloWorld>
           <HelloWorld></HelloWorld>
+
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn flat color="orange" right>Save Item</v-btn>
+          <v-form>
+            <v-text-field label="What do you need to do?"></v-text-field>
+            <v-spacer></v-spacer>
+            <v-btn flat color="orange" right>Save Item</v-btn>
+          </v-form>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -21,17 +25,17 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import HelloWorld from "./components/HelloWorld";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HelloWorld
   },
-  data () {
+  data() {
     return {
       //
-    }
+    };
   }
-}
+};
 </script>
