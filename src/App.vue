@@ -1,28 +1,37 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<v-layout>
+    <v-flex xs12 sm6 offset-sm3>
+      <v-card>
+        <v-card-title primary-title>
+          <div>
+            <h3 class="headline mb-0">To do</h3>
+          </div>
+        </v-card-title>
+
+          <HelloWorld></HelloWorld>
+          <HelloWorld></HelloWorld>
+          <HelloWorld></HelloWorld>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn flat color="orange" right>Save Item</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     HelloWorld
+  },
+  data () {
+    return {
+      //
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
