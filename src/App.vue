@@ -1,5 +1,5 @@
 <template>
-<v-layout>
+  <v-layout>
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
         <v-card-title primary-title>
@@ -7,6 +7,7 @@
             <h3 class="headline mb-0">To do:</h3>
           </div>
         </v-card-title>
+          <todo-item></todo-item>
           <v-card-text>
             <HelloWorld
             v-for="(todo, index) in todos"
@@ -27,12 +28,12 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import TodoItem from "./components/TodoItem";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TodoItem
   },
   data () {
     return {
