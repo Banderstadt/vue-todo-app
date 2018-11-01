@@ -19,7 +19,6 @@
       <v-btn icon @click="deleteTodo(todo)">
         <v-icon>delete_forever</v-icon>
       </v-btn>
-
     </v-layout>
   </v-layout>
 </template>
@@ -30,14 +29,14 @@ import { mapActions } from 'vuex'
 export default {
   name: 'TodoItem',
   props: ['todo'],
-  data() {
+  data () {
     return {
-    isReadOnly: true,
-    value: this.title
-    };
+      sReadOnly: true,
+      value: this.title
+    }
   },
   computed: {
-    title(){
+    title () {
       return this.todo.title
     }
   },
@@ -51,12 +50,10 @@ export default {
       this.isReadOnly = this.todo.done
     },
     editingCompleted (e) {
-      if(!this.isReadOnly){
-      let newTitle = e.target.value
-      if( newTitle ){
+      if (!this.isReadOnly) {
+        const newTitle = e.target.value
         this.editTodo({ todo: this.todo, title: newTitle })
         this.isReadOnly = true
-      }
       }
     }
   }

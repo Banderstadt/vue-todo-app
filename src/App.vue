@@ -41,7 +41,7 @@ export default {
   },
   data () {
     return {
-      newItem: '',
+      newItem: ''
     }
   },
   computed: {
@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     addTodo () {
-      if(this.newItem){
+      if (this.newItem) {
         this.$store.dispatch('addTodo', this.newItem)
         this.newItem = null
       }
