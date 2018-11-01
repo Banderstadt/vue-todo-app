@@ -25,46 +25,40 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
-  name: 'TodoItem',
-  props: ['todo'],
+  name: "TodoItem",
+  props: ["todo"],
   data() {
     return {
-    isReadOnly: true,
-    value: this.title
+      isReadOnly: true,
+      value: this.title
     };
   },
   computed: {
-    title(){
-      return this.todo.title
+    title() {
+      return this.todo.title;
     }
   },
   methods: {
-    ...mapActions([
-      'editTodo',
-      'toggleTodo',
-      'deleteTodo'
-    ]),
-    edit () {
-      this.isReadOnly = this.todo.done
+    ...mapActions(["editTodo", "toggleTodo", "deleteTodo"]),
+    edit() {
+      this.isReadOnly = this.todo.done;
     },
-    editingCompleted (e) {
-      if(!this.isReadOnly){
-      let newTitle = e.target.value
-      if( newTitle ){
-        this.editTodo({ todo: this.todo, title: newTitle })
-        this.isReadOnly = true
-      }
+    editingCompleted(e) {
+      if (!this.isReadOnly) {
+        let newTitle = e.target.value;
+        this.editTodo({ todo: this.todo, title: newTitle });
+        this.isReadOnly = true;
       }
     }
   }
-}
+};
 </script>
 
 <style>
-  .is-done {
-    text-decoration: line-through;
-  }
+.is-done {
+  text-decoration: line-through;
+}
 </style>
