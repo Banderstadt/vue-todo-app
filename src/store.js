@@ -41,6 +41,7 @@ export default new Vuex.Store({
     },
     deleteTodo (state, { todo }) {
       const todoIndex = state.todos.indexOf(todo)
+      console.log(todoIndex)
       state.todos.splice(todoIndex, 1)
     },
     addTodo (state, todo) {
