@@ -31,7 +31,7 @@ export default {
   props: ['todo'],
   data () {
     return {
-      sReadOnly: true,
+      isReadOnly: true,
       value: this.title
     }
   },
