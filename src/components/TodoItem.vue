@@ -1,17 +1,28 @@
 <template>
-  <div class="todo-item" style="display: flex; justify-content: space-between">
-    <v-text-field
+  <v-layout sm6 align-start justify-space-between row sm10>
+     <v-flex align-center xs12>
+    <v-textarea
                   :value="todo.title"
                   v-bind:class="[todo.done ? 'is-done' : '']"
-                  @keyup="editTodo">
-    </v-text-field>
+                  @blur="editingCompleted"
+                  @keyup.enter="editingCompleted"
+                  @dblclick="edit"
+                  :readonly="isReadOnly"
+                  solo
+                  :rows="1"
+                  auto-grow>
+    </v-textarea>
+     </v-flex>
+    <v-layout row>
       <v-btn icon @click="toggleTodo(todo)">
         <v-icon>done</v-icon>
       </v-btn>
       <v-btn icon @click="deleteTodo(todo)">
         <v-icon>delete_forever</v-icon>
       </v-btn>
-  </div>
+
+    </v-layout>
+  </v-layout>
 </template>
 
 <script>
@@ -21,15 +32,21 @@ export default {
   name: 'TodoItem',
   props: ['todo'],
   data: () => ({
+    isReadOnly: true
   }),
   methods: {
     ...mapActions([
-      // 'editTodo',
       'toggleTodo',
       'deleteTodo'
     ]),
-    editTodo () {
-      console.log(this.todo)
+    edit () {
+      this.isReadOnly = this.todo.done
+    },
+    editingCompleted () {
+      if(!this.isReadOnly){
+      console.log('Editing is complited')
+      this.isReadOnly = true
+      }
     }
   }
 }
