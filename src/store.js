@@ -14,36 +14,39 @@ export default new Vuex.Store({
         title,
         done: false
       })
-      console.log
     },
-    toggleTodo ({commit}, todo) {
+
+    toggleTodo ({ commit }, todo) {
       commit('toggleTodo', {
         todo,
         done: !todo.done
       })
     },
-    editTodo ({ commit }, { todo, title } ) {
+
+    editTodo ({ commit }, { todo, title }) {
       commit('editTodo', { todo, title })
     },
-    deleteTodo ({commit}, { todo } ) {
+
+    deleteTodo ({ commit }, todo) {
       commit('deleteTodo', {
         todo
       })
-      console.log(todo);
     }
   },
   mutations: {
     toggleTodo (state, { todo, done }) {
       todo.done = done
     },
+
     editTodo (state, { todo, title }) {
       todo.title = title
     },
+
     deleteTodo (state, { todo }) {
       const todoIndex = state.todos.indexOf(todo)
-      console.log(todoIndex)
       state.todos.splice(todoIndex, 1)
     },
+
     addTodo (state, todo) {
       state.todos.push(todo)
     }
