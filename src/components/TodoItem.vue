@@ -38,7 +38,7 @@ export default {
   computed: {
     title () {
       return this.todo.title
-    }
+    },
   },
   methods: {
     ...mapActions([

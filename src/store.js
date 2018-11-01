@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 Vue.use(Vuex)
 const STORAGE_KEY = 'todoKey'
@@ -13,14 +13,14 @@ export default new Vuex.Store({
       commit('addTodo', {
         title,
         done: false
-      })
+      });
     },
 
     toggleTodo ({ commit }, todo) {
       commit('toggleTodo', {
         todo,
         done: !todo.done
-      })
+      });
     },
 
     editTodo ({ commit }, { todo, title }) {
