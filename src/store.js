@@ -20,13 +20,21 @@ export default new Vuex.Store({
         todo,
         done: !todo.done
       })
+    },
+    deleteTodo ({commit}, todo) {
+      commit('deleteTodo', {
+        todo,
+      })
     }
   },
   mutations: {
     toggleTodo(state, { todo, done }) {
-      
       console.log(state.todos.indexOf(todo))
       todo.done = done
+    },
+    deleteTodo(state, todo) {
+      const todoIndex = state.todos.indexOf(todo)
+      state.todos.splice(todoIndex, 1)
     },
     addTodo (state, todo) {
       state.todos.push(todo)
