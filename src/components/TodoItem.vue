@@ -1,14 +1,14 @@
 <template>
   <v-layout sm6 align-start justify-space-between row sm10>
      <v-flex align-center xs12>
-    <v-textarea   v-model="title"
-                  v-bind:class="[todo.done ? 'is-done' : '']"
-                  @blur="editingCompleted"
-                  @keyup.enter="editingCompleted"
-                  @dblclick="edit"
-                  :readonly="isReadOnly"
+    <v-textarea   :value = "title"
+                  v-bind:class = "[todo.done ? 'is-done' : '']"
+                  @blur = "editingCompleted"
+                  @keydown.enter.prevent = "editingCompleted"
+                  @dblclick= "edit"
+                  :readonly = "isReadOnly"
                   solo
-                  :rows="1"
+                  :rows = "1"
                   auto-grow>
     </v-textarea>
      </v-flex>
@@ -33,8 +33,13 @@ export default {
   data() {
     return {
     isReadOnly: true,
-    title: this.todo.title
+    value: this.title
     };
+  },
+  computed: {
+    title(){
+      return this.todo.title
+    }
   },
   methods: {
     ...mapActions([
@@ -45,10 +50,13 @@ export default {
     edit () {
       this.isReadOnly = this.todo.done
     },
-    editingCompleted () {
+    editingCompleted (e) {
       if(!this.isReadOnly){
-      this.editTodo({ todo: this.todo, title: this.title })
-      this.isReadOnly = true
+      let newTitle = e.target.value
+      if( newTitle ){
+        this.editTodo({ todo: this.todo, title: newTitle })
+        this.isReadOnly = true
+      }
       }
     }
   }
