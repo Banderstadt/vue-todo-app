@@ -39,7 +39,7 @@ export default {
       newItem: ''
     }
   },
-    computed: {
+  computed: {
     todos () {
       return this.$store.state.todos
     }
