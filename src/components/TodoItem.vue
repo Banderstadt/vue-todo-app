@@ -24,7 +24,8 @@ export default {
   props: ['todo'],
   data() {
     return {
-      title: this.todo.title
+    isReadOnly: true,
+    title: this.todo.title
     };
   },
   methods: {
@@ -33,6 +34,15 @@ export default {
       'toggleTodo',
       'deleteTodo'
     ]),
+    edit () {
+      this.isReadOnly = this.todo.done
+    },
+    editingCompleted () {
+      if(!this.isReadOnly){
+      this.editTodo({ todo: this.todo, title: this.title })
+      this.isReadOnly = true
+      }
+    }
   }
 }
 </script>

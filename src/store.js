@@ -14,6 +14,7 @@ export default new Vuex.Store({
         title,
         done: false
       })
+      console.log
     },
     toggleTodo ({commit}, todo) {
       commit('toggleTodo', {
@@ -26,8 +27,9 @@ export default new Vuex.Store({
     },
     deleteTodo ({commit}, { todo } ) {
       commit('deleteTodo', {
-        todo,
+        todo
       })
+      console.log(todo);
     }
   },
   mutations: {
