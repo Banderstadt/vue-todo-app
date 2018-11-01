@@ -7,13 +7,12 @@
             <h3 class="headline mb-0">To do:</h3>
           </div>
         </v-card-title>
-          <todo-item></todo-item>
           <v-card-text>
-            <HelloWorld
+            <TodoItem
             v-for="(todo, index) in todos"
             :key="index"
             :todo="todo">
-            </HelloWorld>
+            </TodoItem>
               <v-form>
                 <v-text-field v-model="newItem" label="What do you need to do?"></v-text-field>
               </v-form>
@@ -28,7 +27,7 @@
 </template>
 
 <script>
-import TodoItem from "./components/TodoItem";
+import TodoItem from './components/TodoItem'
 
 export default {
   name: 'App',
@@ -40,14 +39,13 @@ export default {
       newItem: ''
     }
   },
-    computed: {
+  computed: {
     todos () {
       return this.$store.state.todos
     }
-    },
-   methods: {
+  },
+  methods: {
     addTodo (e) {
-      console.log(this.newItem);
       this.$store.dispatch('addTodo', this.newItem)
     }
   }

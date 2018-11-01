@@ -2,25 +2,35 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-const STORAGE_KEY = 'todoKey';
+const STORAGE_KEY = 'todoKey'
 
 export default new Vuex.Store({
   state: {
     todos: JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]')
   },
   actions: {
-    addTodo({ commit }, todo) {
+    addTodo ({ commit }, title) {
       commit('addTodo', {
-        todo,
+        title,
         done: false
+      })
+    },
+    toggleTodo ({commit}, todo) {
+      commit('toggleTodo', {
+        todo,
+        done: !todo.done
       })
     }
   },
   mutations: {
-    addTodo(state, todo) {
-      state.todos.push(todo)
+    toggleTodo(state, { todo, done }) {
+      
+      console.log(state.todos.indexOf(todo))
+      todo.done = done
     },
-
+    addTodo (state, todo) {
+      state.todos.push(todo)
+    }
   },
   plugins: [
     store => {

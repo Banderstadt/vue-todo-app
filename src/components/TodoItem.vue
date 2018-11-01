@@ -1,7 +1,11 @@
 <template>
   <div class="todo-item" style="display: flex; justify-content: space-between">
-    <v-text-field v-model="todo" v-bind:class="[done ? 'is-done' : '']" @keyup="editTodo"></v-text-field>
-      <v-btn icon @click="toggleTodo">
+    <v-text-field
+                  :value="todo.title"
+                  v-bind:class="[todo.done ? 'is-done' : '']"
+                  @keyup="editTodo">]
+    </v-text-field>
+      <v-btn icon @click="toggleTodo(todo)">
         <v-icon>done</v-icon>
       </v-btn>
       <v-btn icon @click="deleteTodo">
@@ -11,22 +15,25 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  name: "TodoItem",
+  name: 'TodoItem',
+  props: ['todo'],
   data: () => ({
-    todo: "New todo",
-    done: false
   }),
   methods: {
+    ...mapActions([
+      // 'editTodo',
+      'toggleTodo'
+      // 'removeTodo'
+    ]),
     deleteTodo () {
-      this.todo = '';
-    },
-    toggleTodo () {
-      this.done = !this.done;
+      this.todo = ''
     },
     editTodo () {
-      console.log(this.todo);
-    },
+      console.log(this.todo)
+    }
   }
 }
 </script>
