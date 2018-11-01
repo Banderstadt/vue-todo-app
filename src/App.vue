@@ -1,5 +1,5 @@
 <template>
-<v-layout>
+  <v-layout>
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
         <v-card-title primary-title>
@@ -7,17 +7,20 @@
             <h3 class="headline mb-0">To do:</h3>
           </div>
         </v-card-title>
-
-          <HelloWorld></HelloWorld>
-          <HelloWorld></HelloWorld>
-          <HelloWorld></HelloWorld>
-
+          <todo-item></todo-item>
+          <v-card-text>
+            <HelloWorld
+            v-for="(todo, index) in todos"
+            :key="index"
+            :todo="todo">
+            </HelloWorld>
+              <v-form>
+                <v-text-field v-model="newItem" label="What do you need to do?"></v-text-field>
+              </v-form>
+            </v-card-text>
         <v-card-actions>
-          <v-form>
-            <v-text-field label="What do you need to do?"></v-text-field>
             <v-spacer></v-spacer>
-            <v-btn flat color="orange" right>Save Item</v-btn>
-          </v-form>
+            <v-btn @click="addTodo">Save Item</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -25,17 +28,28 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import TodoItem from "./components/TodoItem";
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
+    TodoItem
   },
-  data() {
+  data () {
     return {
-      //
-    };
+      newItem: ''
+    }
+  },
+    computed: {
+    todos () {
+      return this.$store.state.todos
+    }
+    },
+   methods: {
+    addTodo (e) {
+      console.log(this.newItem);
+      this.$store.dispatch('addTodo', this.newItem)
+    }
   }
-};
+}
 </script>
