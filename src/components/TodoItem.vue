@@ -1,8 +1,7 @@
 <template>
   <v-layout sm6 align-start justify-space-between row sm10>
      <v-flex align-center xs12>
-    <v-textarea
-                  :value="todo.title"
+    <v-textarea   v-model="title"
                   v-bind:class="[todo.done ? 'is-done' : '']"
                   @blur="editingCompleted"
                   @keyup.enter="editingCompleted"
@@ -31,11 +30,15 @@ import { mapActions } from 'vuex'
 export default {
   name: 'TodoItem',
   props: ['todo'],
-  data: () => ({
-    isReadOnly: true
-  }),
+  data() {
+    return {
+    isReadOnly: true,
+    title: this.todo.title
+    };
+  },
   methods: {
     ...mapActions([
+      'editTodo',
       'toggleTodo',
       'deleteTodo'
     ]),
@@ -44,7 +47,7 @@ export default {
     },
     editingCompleted () {
       if(!this.isReadOnly){
-      console.log('Editing is complited')
+      this.editTodo({ todo: this.todo, title: this.title })
       this.isReadOnly = true
       }
     }

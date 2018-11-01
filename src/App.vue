@@ -14,7 +14,7 @@
             :todo="todo">
             </TodoItem>
               <v-form>
-                <v-text-field ref="input" v-model="newItem" label="What do you need to do?" @keydown.enter="addTodo" ></v-text-field>
+                <v-text-field ref="input" v-model="newItem" label="What do you need to do?" @keydown.enter.prevent="addTodo" autofocus></v-text-field>
               </v-form>
             </v-card-text>
         <v-card-actions>
@@ -47,7 +47,8 @@ export default {
   methods: {
     addTodo () {
       this.$store.dispatch('addTodo', this.newItem)
-      this.newItem = null;
+      this.newItem = null
+      console.log(this.$refs['input'])
     }
   }
 }
