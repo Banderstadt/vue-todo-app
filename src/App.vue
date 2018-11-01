@@ -30,14 +30,14 @@
 import TodoItem from './components/TodoItem'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     TodoItem
   },
-  data () {
+  data() {
     return {
-      newItem: ''
-    }
+      newItem: ""
+    };
   },
   computed: {
     todos () {

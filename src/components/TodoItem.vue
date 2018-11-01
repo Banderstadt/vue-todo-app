@@ -3,12 +3,12 @@
     <v-text-field
                   :value="todo.title"
                   v-bind:class="[todo.done ? 'is-done' : '']"
-                  @keyup="editTodo">]
+                  @keyup="editTodo">
     </v-text-field>
       <v-btn icon @click="toggleTodo(todo)">
         <v-icon>done</v-icon>
       </v-btn>
-      <v-btn icon @click="deleteTodo">
+      <v-btn icon @click="deleteTodo(todo)">
         <v-icon>delete_forever</v-icon>
       </v-btn>
   </div>
@@ -25,12 +25,9 @@ export default {
   methods: {
     ...mapActions([
       // 'editTodo',
-      'toggleTodo'
-      // 'removeTodo'
+      'toggleTodo',
+      'deleteTodo'
     ]),
-    deleteTodo () {
-      this.todo = ''
-    },
     editTodo () {
       console.log(this.todo)
     }
