@@ -18,7 +18,8 @@
                               v-model="newItem"
                               label="What do you need to do?"
                               @keydown.enter.prevent="addTodo"
-                              autofocus>
+                              autofocus
+                              required>
                 </v-text-field>
               </v-form>
             </v-card-text>
@@ -41,7 +42,7 @@ export default {
   },
   data () {
     return {
-      newItem: '',
+      newItem: ''
     }
   },
   computed: {
@@ -51,7 +52,7 @@ export default {
   },
   methods: {
     addTodo () {
-      if(this.newItem){
+      if (this.newItem) {
         this.$store.dispatch('addTodo', this.newItem)
         this.newItem = null
       }

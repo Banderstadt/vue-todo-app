@@ -25,36 +25,36 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex'
 
 export default {
-  name: "TodoItem",
-  props: ["todo"],
-  data() {
+  name: 'TodoItem',
+  props: ['todo'],
+  data () {
     return {
       isReadOnly: true,
       value: this.title
-    };
+    }
   },
   computed: {
-    title() {
-      return this.todo.title;
+    title () {
+      return this.todo.title
     }
   },
   methods: {
-    ...mapActions(["editTodo", "toggleTodo", "deleteTodo"]),
-    edit() {
-      this.isReadOnly = this.todo.done;
+    ...mapActions(['editTodo', 'toggleTodo', 'deleteTodo']),
+    edit () {
+      this.isReadOnly = this.todo.done
     },
-    editingCompleted(e) {
+    editingCompleted (e) {
       if (!this.isReadOnly) {
-        let newTitle = e.target.value;
-        this.editTodo({ todo: this.todo, title: newTitle });
-        this.isReadOnly = true;
+        const newTitle = e.target.value
+        this.editTodo({ todo: this.todo, title: newTitle })
+        this.isReadOnly = true
       }
     }
   }
-};
+}
 </script>
 
 <style>
