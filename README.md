@@ -1,5 +1,5 @@
 # Todo list
-Todo list is a simple Vue application.[Live demo](https://banderstadt.github.io/vue-todo-app/?).
+Todo list is a simple Vue application. [Live demo](https://banderstadt.github.io/vue-todo-app/?).
 
 ## How to use
 The way this Todo List app works is pretty simple. Type in a task or item or whatever you want into the input field and press 'SAVE ITEM' (or hit Enter). Once you've submitted your item, you will see it appear as an entry. You can keep adding item to add additional entries and have them all show up:
