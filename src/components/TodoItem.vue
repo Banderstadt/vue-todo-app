@@ -19,7 +19,6 @@
       <v-btn icon @click="deleteTodo(todo)">
         <v-icon>delete_forever</v-icon>
       </v-btn>
-
     </v-layout>
   </v-layout>
 </template>
@@ -32,8 +31,7 @@ export default {
   props: ['todo'],
   data () {
     return {
-      isReadOnly: true,
-      value: this.title
+      isReadOnly: true
     }
   },
   computed: {
