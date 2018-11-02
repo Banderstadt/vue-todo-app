@@ -8,7 +8,7 @@ The way this Todo List app works is pretty simple. Type in a task or item or wha
 To remove an item, just click on a removing icon for existing entry. That entry will be removed. The same way for toggle status 'done'. Also you can edit existing item by double click.
 Firstly, you need to install node package
 
-## Main Features
+## Main features
 Main functionality of Todo list application:
 * adding items
 * toggling status 'done' for items
