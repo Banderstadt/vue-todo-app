@@ -31,8 +31,7 @@ export default {
   props: ['todo'],
   data () {
     return {
-      isReadOnly: true,
-      value: this.title
+      isReadOnly: true
     }
   },
   computed: {
@@ -41,11 +40,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions([
-      'editTodo',
-      'toggleTodo',
-      'deleteTodo'
-    ]),
+    ...mapActions(['editTodo', 'toggleTodo', 'deleteTodo']),
     edit () {
       this.isReadOnly = this.todo.done
     },
@@ -61,7 +56,7 @@ export default {
 </script>
 
 <style>
-  .is-done {
-    text-decoration: line-through;
-  }
+.is-done {
+  text-decoration: line-through;
+}
 </style>

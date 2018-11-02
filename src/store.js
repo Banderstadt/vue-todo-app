@@ -15,7 +15,6 @@ export default new Vuex.Store({
         done: false
       });
     },
-
     toggleTodo ({ commit }, todo) {
       commit('toggleTodo', {
         todo,
@@ -35,6 +34,7 @@ export default new Vuex.Store({
   },
   mutations: {
     toggleTodo (state, { todo, done }) {
+      console.log(state.todos.indexOf(todo))
       todo.done = done
     },
 
