@@ -14,23 +14,22 @@ export default new Vuex.Store({
         title,
         done: false
       })
+      console.log
     },
-
-    toggleTodo ({commit}, todo) {
+    toggleTodo ({ commit }, todo) {
       commit('toggleTodo', {
         todo,
         done: !todo.done
       })
     },
 
-    editTodo ({ commit }, { todo, title } ) {
+    editTodo ({ commit }, { todo, title }) {
       commit('editTodo', { todo, title })
-      console.log('title', title)
     },
 
-    deleteTodo ({commit}, todo) {
+    deleteTodo ({ commit }, todo) {
       commit('deleteTodo', {
-        todo,
+        todo
       })
     }
   },
