@@ -17,26 +17,27 @@ Main functionality of Todo list application:
 * toggling status 'done' for items
 
 ## Project setup
+Firstly, install packages:
 ```
 npm install
 ```
 
-For compiling and hot-reloads for development
+For compiling and hot-reloads for development:
 ```
 npm run serve
 ```
 
-For compiling and minifies for production
+For compiling and minifies for production:
 ```
 npm run build
 ```
 
-For runing your tests
+For runing your tests:
 ```
 npm run test
 ```
 
-For linting and fixing files
+For linting and fixing files:
 ```
 npm run lint
 ```
