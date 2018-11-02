@@ -14,7 +14,6 @@ Main functionality of Todo list application:
 * toggling status 'done' for items
 * displaying items
 * removing items
-* toggling status 'done' for items
 
 ## Project setup
 Firstly, install packages:
