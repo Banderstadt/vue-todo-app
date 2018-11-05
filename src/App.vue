@@ -13,7 +13,7 @@
             :key="index"
             :todo="todo">
             </TodoItem>
-            <InputFeild ref = "inputFeild"></InputFeild>
+            <InputField ref = "inputFeild"></InputField>
             </v-card-text>
         <v-card-actions>
             <v-spacer></v-spacer>
@@ -26,13 +26,13 @@
 
 <script>
 import TodoItem from './components/TodoItem'
-import InputFeild from './components/InputFeild'
+import InputField from './components/InputField'
 
 export default {
   name: 'App',
   components: {
     TodoItem,
-    InputFeild
+    InputField
   },
   data () {
     return {
