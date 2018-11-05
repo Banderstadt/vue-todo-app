@@ -1,17 +1,19 @@
 <template>
   <v-form>
     <v-text-field v-model="newItemTitle"
-                    label="What do you need to do?"
-                    @keydown.enter.prevent="addTodo"
-                    autofocus
-                    :rules="[rules.minLength]"
-                    required>
+                  label="What do you need to do?"
+                  @keydown.enter.prevent="addTodo"
+                  autofocus
+                  :rules="[rules.minLength]"
+                  required
+                  >
     </v-text-field>
   </v-form>
 </template>
 
 <script>
 const MIN_LENGTH_VALIDATION = 3
+
 export default {
   name: 'InputField',
   data () {
@@ -24,13 +26,11 @@ export default {
       }
     }
   },
-  computed: {
-  },
   methods: {
     addTodo () {
       if (this.newItemTitle.length >= MIN_LENGTH_VALIDATION) {
         this.$store.dispatch('addTodo', this.newItemTitle)
-        this.newItemTitle = null
+        this.newItemTitle = ''
       }
     }
   }

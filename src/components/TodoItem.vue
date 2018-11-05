@@ -1,7 +1,8 @@
 <template>
   <v-layout sm6 align-start justify-space-between row sm10>
-     <v-flex align-center xs12>
-    <v-textarea   :value = "title"
+    <v-flex align-center xs10>
+      <v-textarea :value = "title"
+                  ref = "input"
                   v-bind:class = "[todo.done ? 'is-done' : '']"
                   @blur = "editingCompleted"
                   @keydown.enter.prevent = "editingCompleted"
@@ -11,9 +12,12 @@
                   :rules="[rules.minLength]"
                   :rows = "1"
                   auto-grow>
-    </v-textarea>
-     </v-flex>
+      </v-textarea>
+    </v-flex>
     <v-layout row>
+      <v-btn icon @click="edit()">
+        <v-icon>edit</v-icon>
+      </v-btn>
       <v-btn icon @click="toggleTodo(todo)">
         <v-icon>done</v-icon>
       </v-btn>
@@ -47,13 +51,19 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['editTodo', 'toggleTodo', 'deleteTodo']),
+    ...mapActions([
+      'editTodo',
+      'toggleTodo',
+      'deleteTodo'
+    ]),
     edit () {
       this.isReadOnly = this.todo.done
+      this.$refs.input.focus()
     },
     editingCompleted (e) {
       const newTitle = e.target.value
       const validation = (newTitle.length >= MIN_LENGTH_VALIDATION)
+
       if (!this.isReadOnly && validation) {
         this.editTodo({ todo: this.todo, title: newTitle })
         this.isReadOnly = true

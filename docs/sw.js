@@ -1,15 +1,14 @@
-const cacheName = 'todo-v1';
+const CACHE_KEY = 'todo-v1';
 
 self.addEventListener('install', e => {
 });
 
 self.addEventListener('activate', e => {
-  // clearing old cache
   e.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cache => {
-          if (cache !== cacheName) {
+          if (cache !== CACHE_KEY) {
             return caches.delete(cache);
           }
         })
@@ -23,7 +22,7 @@ self.addEventListener('fetch', e => {
     fetch(e.request)
       .then(res => {
         const resClone = res.clone();
-        caches.open(cacheName).then(cache => {
+        caches.open(CACHE_KEY).then(cache => {
           cache.put(e.request, resClone);
         });
         return res;
