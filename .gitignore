@@ -11,6 +11,7 @@
 
 public/
 src/
+.DS_Store
 .eslintrc.json/
 .gitignore/
 babel.config.js/
