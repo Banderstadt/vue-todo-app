@@ -9,6 +9,16 @@
 *.userosscache
 *.sln.docstates
 
+public/
+src/
+.eslintrc.json/
+.gitignore/
+babel.config.js/
+package-lock.json/
+package.json/
+postcss.config.js/
+
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -263,6 +273,7 @@ FakesAssemblies/
 .ntvs_analysis.dat
 node_modules/
 
+
 # Visual Studio 6 build log
 *.plg
 
@@ -317,7 +328,7 @@ __pycache__/
 # OpenCover UI analysis results
 OpenCover/
 
-# Azure Stream Analytics local run output 
+# Azure Stream Analytics local run output
 ASALocalRun/
 
 # MSBuild Binary and Structured Log
@@ -326,5 +337,5 @@ ASALocalRun/
 # NVidia Nsight GPU debugger configuration file
 *.nvuser
 
-# MFractors (Xamarin productivity tool) working folder 
+# MFractors (Xamarin productivity tool) working folder
 .mfractor/

@@ -1,12 +1,9 @@
 const cacheName = 'todo-v1';
 
-
 self.addEventListener('install', e => {
 });
 
-
 self.addEventListener('activate', e => {
-  // clearing old cache
   e.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
