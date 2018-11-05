@@ -1,7 +1,9 @@
 const cacheName = 'todo-v1';
 
+
 self.addEventListener('install', e => {
 });
+
 
 self.addEventListener('activate', e => {
   // clearing old cache
