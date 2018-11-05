@@ -1,0 +1,6 @@
+{
+  "name": "vue-todo-app",
+  "short_name": "todo",
+  "start_url": "./index.html",
+  "display": "standalone"
+}
