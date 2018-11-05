@@ -1,10 +1,10 @@
 <template>
-  <v-layout>
+  <v-app>
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
-        <v-card-title primary-title>
+        <v-card-title primary-title class="title">
           <div>
-            <h3 class="headline mb-0">To do:</h3>
+            <h3 class="mat-h2 mb-0">Todo List</h3>
           </div>
         </v-card-title>
         <v-card-text>
@@ -16,11 +16,11 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn @click="addTodo">Save Item</v-btn>
+          <v-btn color="success" @click="addTodo">Save Item</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
-  </v-layout>
+  </v-app>
 </template>
 
 <script>
@@ -49,3 +49,10 @@ export default {
   }
 }
 </script>
+
+<style>
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+</style>
