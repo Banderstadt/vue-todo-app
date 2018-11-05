@@ -1,7 +1,7 @@
 <template>
   <v-layout>
     <v-flex xs12 sm6 offset-sm3>
-      <v-card>
+      <v-card class = "card">
         <v-card-title primary-title>
           <div>
             <h3 class="headline mb-0">To do:</h3>
@@ -13,14 +13,7 @@
             :key="index"
             :todo="todo">
             </TodoItem>
-              <v-form>
-                <v-text-field ref="input"
-                              v-model="newItem"
-                              label="What do you need to do?"
-                              @keydown.enter.prevent="addTodo"
-                              autofocus>
-                </v-text-field>
-              </v-form>
+            <InputFeild ref = "inputFeild"></InputFeild>
             </v-card-text>
         <v-card-actions>
             <v-spacer></v-spacer>
@@ -33,15 +26,16 @@
 
 <script>
 import TodoItem from './components/TodoItem'
+import InputFeild from './components/InputFeild'
 
 export default {
   name: 'App',
   components: {
-    TodoItem
+    TodoItem,
+    InputFeild
   },
   data () {
     return {
-      newItem: ''
     }
   },
   computed: {
@@ -51,10 +45,7 @@ export default {
   },
   methods: {
     addTodo () {
-      if (this.newItem) {
-        this.$store.dispatch('addTodo', this.newItem)
-        this.newItem = null
-      }
+      this.$refs.inputFeild.addTodo()
     }
   }
 }

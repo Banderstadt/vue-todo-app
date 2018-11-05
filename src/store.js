@@ -15,14 +15,13 @@ export default new Vuex.Store({
         done: false
       });
     },
-
     toggleTodo ({ commit }, todo) {
       commit('toggleTodo', {
         todo,
         done: !todo.done
       });
     },
-
+    
     editTodo ({ commit }, { todo, title }) {
       commit('editTodo', { todo, title })
     },
