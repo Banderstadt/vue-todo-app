@@ -1,11 +1,11 @@
 <template>
   <v-form>
     <v-text-field v-model="newItemTitle"
-                  label="What do you need to do?"
-                  @keydown.enter.prevent="addTodo"
-                  autofocus
-                  :rules="[rules.minLength]"
-                  required>
+                    label="What do you need to do?"
+                    @keydown.enter.prevent="addTodo"
+                    autofocus
+                    :rules="[rules.minLength]"
+                    required>
     </v-text-field>
   </v-form>
 </template>
@@ -13,7 +13,7 @@
 <script>
 const MIN_LENGTH_VALIDATION = 3
 export default {
-  name: 'InputFeild',
+  name: 'InputField',
   data () {
     return {
       newItemTitle: '',
