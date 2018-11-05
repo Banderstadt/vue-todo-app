@@ -8,6 +8,7 @@
                   @dblclick= "edit"
                   :readonly = "isReadOnly"
                   solo
+                  :rules="[rules.minLength]"
                   :rows = "1"
                   auto-grow>
     </v-textarea>
@@ -25,13 +26,19 @@
 
 <script>
 import { mapActions } from 'vuex'
+const MIN_LENGTH_VALIDATION = 3
 
 export default {
   name: 'TodoItem',
   props: ['todo'],
   data () {
     return {
-      isReadOnly: true
+      isReadOnly: true,
+      rules: {
+        minLength: value => {
+          return (value.length >= MIN_LENGTH_VALIDATION) || `Required having at least ${MIN_LENGTH_VALIDATION} characters.`
+        }
+      }
     }
   },
   computed: {
@@ -45,8 +52,9 @@ export default {
       this.isReadOnly = this.todo.done
     },
     editingCompleted (e) {
-      if (!this.isReadOnly) {
-        const newTitle = e.target.value
+      const newTitle = e.target.value
+      const validation = (newTitle.length >= MIN_LENGTH_VALIDATION)
+      if (!this.isReadOnly && validation) {
         this.editTodo({ todo: this.todo, title: newTitle })
         this.isReadOnly = true
       }
