@@ -1,6 +1,20 @@
 {
-  "name": "vue-todo-app",
-  "short_name": "todo",
+  "name": "Todo List",
+  "short_name": "Todo",
   "start_url": "./index.html",
-  "display": "standalone"
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#4DBA87",
+  "icons": [
+    {
+      "src": "./img/android-launchericon-192-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/android-launchericon-512-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }

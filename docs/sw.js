@@ -1,6 +1,14 @@
 const CACHE_KEY = 'todo-v1';
 
 self.addEventListener('install', e => {
+  console.log('Installing sw.')
+  e.waitUntil(
+    caches.open(CACHE_KEY)
+      .then(cache => {
+        console.log('Opened cache');
+        return cache;
+      })
+  );
 });
 
 self.addEventListener('activate', e => {
