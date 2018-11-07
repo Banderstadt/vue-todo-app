@@ -2,7 +2,7 @@ const CACHE_KEY = 'todo-v1';
 const filesToCache = [
   '/',
   'index.html',
-  './img'
+  'img/'
 ];
 
 self.addEventListener('install', e => {
@@ -38,6 +38,5 @@ self.addEventListener('fetch', e => {
     caches.match(e.request)
       .then((response) => {
         return response || fetch(e.request);
-      })
-  );
+      }))
 });
