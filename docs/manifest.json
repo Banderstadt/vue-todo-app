@@ -15,6 +15,11 @@
       "src": "./img/android-launchericon-512-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "./img/ios-appicon-180-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ]
 }
